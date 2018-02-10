@@ -5,15 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aleaweeks.flagellant.SummaryActivity">
+    tools:context="com.example.aleaweeks.flagellant.SummaryActivity"
+    android:orientation="vertical">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_list"
+        android:paddingBottom="30dp"
+        android:textSize="10pt"
+        android:textColor="@color/heading_color"/>
+
+    <Button
+        android:id="@+id/btn_start"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/app_list"/>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:text="@string/start_button"/>
+
 </LinearLayout>

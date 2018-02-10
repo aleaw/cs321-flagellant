@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Flagellant</string>
 
+    <!--menu strings-->
+    <string name="settings_action">Settings</string>
+    <string name="summary_action">Summary</string>
+
     <!--Settings Activity strings-->
     <string name="donation_amount"> Dollars to Donate</string>
     <string name="feedbacktitle">Settings</string>
@@ -10,11 +14,13 @@
     <string name="Charity3">Alea Weeks</string>
     <string name="ChangeCharity">Change Charity</string>
     <string name="focus_time">Set Focus Time</string>
-    <string name="focus_hint">Enter time (in minutes) </string>
+    <string name="focus_hint">Enter time (in minutes)</string>
     <string name="settings_label">Settings</string>
     <string name="summary_label">Summary</string>
     <string name="add_apps_button">ADD APPS</string>
 
     <!--Summary Activity Strings-->
     <string name="app_list">Your time wasting apps</string>
+    <string name="start_button">Start Flagellating</string>
+
 </resources>
