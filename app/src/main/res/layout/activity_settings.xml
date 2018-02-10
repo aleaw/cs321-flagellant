@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,8 +21,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/donation_amount"
-                android:padding="10dp"
-                android:textSize="10pt"/>
+                android:paddingBottom="10dp"
+                android:textSize="10pt"
+                android:textColor="@color/heading_color"/>
 
             <EditText
                 android:id="@+id/et_donation"
@@ -32,13 +34,33 @@
                 android:paddingBottom="20dp"/>
 
             <TextView
+                android:id="@+id/tv_focus_time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/focus_time"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textSize="10pt"
+                android:textColor="@color/heading_color"/>
+
+            <EditText
+                android:id="@+id/et_focus_time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/focus_hint"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"/>
+
+            <TextView
                 android:id="@+id/et_charity_picker"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/ChangeCharity"
                 android:textSize="10pt"
                 android:paddingTop="20dp"
-                android:paddingBottom="20dp"/>
+                android:paddingBottom="20dp"
+                android:textColor="@color/heading_color"/>
 
             <Spinner
                 android:id="@+id/s_charity_picker"
@@ -51,22 +73,32 @@
             </Spinner>
 
             <TextView
-                android:id="@+id/tv_focus_time"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/focus_time"
+                android:layout_height="fill_parent"
+                android:text="@string/app_list"
+                android:textSize="10pt"
                 android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:textSize="10pt"/>
+                android:textColor="@color/heading_color"/>
 
-            <EditText
-                android:id="@+id/et_focus_time"
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_app_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/heading_color"/>
+
+            </ScrollView>
+
+            <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="@string/focus_hint"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"/>
+                android:text="@string/add_apps_button" />
         </LinearLayout>
 
 
