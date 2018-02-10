@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Flagellant</string>
+    <string name="donation_amount"> Dollars to Donate</string>
+    <string name="feedbacktitle">Settings</string>
+    <string name="donation_hint">Enter a number</string>
+    <string name="Charity1">PETA</string>
+    <string name="Charity2">Flagellent Developers</string>
+    <string name="Charity3">Alea Weeks</string>
+    <string name="ChangeCharity">Change Charity</string>
+    <string name="focus_time">Set Focus Time</string>
+    <string name="focus_hint">Enter time (in minutes) </string>
+</resources>

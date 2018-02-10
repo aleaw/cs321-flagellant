@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:padding="10dp"
+    tools:context="com.example.aleaweeks.flagellant.SettingsActivity">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_donation_amount"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/donation_amount"
+                android:padding="10dp"
+                android:textSize="10pt"/>
+
+            <EditText
+                android:id="@+id/et_donation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/donation_hint"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/et_charity_picker"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ChangeCharity"
+                android:textSize="10pt"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"/>
+
+            <Spinner
+                android:id="@+id/s_charity_picker"
+                android:layout_width="fill_parent"
+                android:prompt="@string/ChangeCharity"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:entries="@array/charity_list">
+            </Spinner>
+
+            <TextView
+                android:id="@+id/tv_focus_time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/focus_time"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textSize="10pt"/>
+
+            <EditText
+                android:id="@+id/et_focus_time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/focus_hint"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"/>
+        </LinearLayout>
+
+
+
+
+</ScrollView>

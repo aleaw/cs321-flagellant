@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="charity_list">
+        <item>@string/Charity1</item>
+        <item>@string/Charity2</item>
+        <item>@string/Charity3</item>
+    </string-array>
+</resources>
