@@ -24,15 +24,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SummaryActivity"
+        <activity android:name=".FlagellateActivity"
             android:parentActivityName=".SettingsActivity"
-            android:label="@string/summary_label">
+            android:label="@string/start_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
 
         </activity>
-
+        <activity
+            android:name=".SummaryActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/summary_action">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
