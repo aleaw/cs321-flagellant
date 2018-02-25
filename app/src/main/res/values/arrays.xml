@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="charity_list">
+
+    <string-array name="pref_charity_entries">
         <item>@string/Charity1</item>
         <item>@string/Charity2</item>
         <item>@string/Charity3</item>
     </string-array>
+
+    <string-array name="pref_charity_values">
+        <item>peta</item>
+        <item>flagellantDevelopers</item>
+        <item>aleaWeeks</item>
+    </string-array>
+
+    <string-array name="pref_app_entries">
+        <item>@string/pref_app_reddit</item>
+        <item>@string/pref_app_facebook</item>
+        <item>@string/pref_app_instagram</item>
+    </string-array>
+
+    <string-array name="pref_app_values">
+        <item>reddit</item>
+        <item>facebook</item>
+        <item>instagram</item>
+    </string-array>
+
+
 </resources>

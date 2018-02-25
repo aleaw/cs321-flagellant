@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 
 public class FlagellateActivity extends AppCompatActivity {
 
@@ -15,6 +16,7 @@ public class FlagellateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        Chronometer clock = (Chronometer)findViewById(R.id.chr_countdown_clock);
 //        Button startFlagellationButton = (Button)findViewById(R.id.btn_start);
 //        startFlagellationButton.setOnClickListener(new View.OnClickListener() {
 //            @Override

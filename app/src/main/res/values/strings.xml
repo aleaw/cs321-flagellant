@@ -23,4 +23,23 @@
     <string name="app_list">Your time wasting apps</string>
     <string name="start_button">Start Flagellating</string>
 
+
+    <string name="pref_charity_key">pref_charity</string>
+    <string name="pref_charity_title">Change Charity</string>
+    <string name="pref_charity_default">developers</string>
+
+    <string name="pref_donation_key">pref_donation</string>
+    <string name="pref_donation_title">Dollars to Donate</string>
+
+    <string name="pref_app_reddit">Reddit</string>
+    <string name="pref_app_reddit_key" translatable="false">pref_app_reddit</string>
+    <string name="pref_app_facebook">Facebook</string>
+    <string name="pref_app_facebook_key" translatable="false">pref_app_facebook</string>
+    <string name="pref_app_instagram">Instagram</string>
+    <string name="pref_app_instagram_key" translatable="false">pref_app_instagram</string>
+
+    <string name="pref_app_key">pref_app</string>
+    <string name="pref_app_title">Your Time Wasting Apps</string>
+    <string name="pref_app_default"></string>
+
 </resources>

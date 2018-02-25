@@ -1,107 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<fragment
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_fragment"
+    android:name="com.example.aleaweeks.flagellant.SettingsFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="vertical"
-    android:padding="10dp"
-    tools:context="com.example.aleaweeks.flagellant.SettingsActivity">
-
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/tv_donation_amount"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/donation_amount"
-                android:paddingBottom="10dp"
-                android:textSize="10pt"
-                android:textColor="@color/heading_color"/>
-
-            <EditText
-                android:id="@+id/et_donation"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="@string/donation_hint"
-                android:paddingBottom="20dp"/>
-
-            <TextView
-                android:id="@+id/tv_focus_time"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/focus_time"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:textSize="10pt"
-                android:textColor="@color/heading_color"/>
-
-            <EditText
-                android:id="@+id/et_focus_time"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="@string/focus_hint"
-                android:paddingTop="10dp"
-                android:paddingBottom="20dp"/>
-
-            <TextView
-                android:id="@+id/et_charity_picker"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/ChangeCharity"
-                android:textSize="10pt"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:textColor="@color/heading_color"/>
-
-            <Spinner
-                android:id="@+id/s_charity_picker"
-                android:layout_width="fill_parent"
-                android:prompt="@string/ChangeCharity"
-                android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:entries="@array/charity_list">
-            </Spinner>
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="@string/app_list"
-                android:textSize="10pt"
-                android:paddingTop="20dp"
-                android:textColor="@color/heading_color"/>
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/tv_app_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="22sp"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="16dp"
-                    android:textColor="@color/heading_color"/>
-
-            </ScrollView>
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/add_apps_button" />
-        </LinearLayout>
+    android:layout_height="match_parent"/>
 
 
 
+        <!--<LinearLayout-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:orientation="vertical"-->
+            <!--android:padding="10dp">-->
 
-</ScrollView>
+            <!--<TextView-->
+                <!--android:id="@+id/tv_donation_amount"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/donation_amount"-->
+                <!--android:paddingBottom="10dp"-->
+                <!--android:textSize="10pt"-->
+                <!--android:textColor="@color/heading_color"/>-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/et_donation"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:inputType="number"-->
+                <!--android:hint="@string/donation_hint"-->
+                <!--android:paddingBottom="20dp"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_focus_time"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/focus_time"-->
+                <!--android:paddingTop="20dp"-->
+                <!--android:paddingBottom="20dp"-->
+                <!--android:textSize="10pt"-->
+                <!--android:textColor="@color/heading_color"/>-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/et_focus_time"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:inputType="number"-->
+                <!--android:hint="@string/focus_hint"-->
+                <!--android:paddingTop="10dp"-->
+                <!--android:paddingBottom="20dp"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/et_charity_picker"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/ChangeCharity"-->
+                <!--android:textSize="10pt"-->
+                <!--android:paddingTop="20dp"-->
+                <!--android:paddingBottom="20dp"-->
+                <!--android:textColor="@color/heading_color"/>-->
+
+            <!--<Spinner-->
+                <!--android:id="@+id/s_charity_picker"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:prompt="@string/ChangeCharity"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingTop="20dp"-->
+                <!--android:paddingBottom="20dp"-->
+                <!--android:entries="@array/charity_list">-->
+            <!--</Spinner>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:text="@string/app_list"-->
+                <!--android:textSize="10pt"-->
+                <!--android:paddingTop="20dp"-->
+                <!--android:textColor="@color/heading_color"/>-->
+
+            <!--<ScrollView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_app_list"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="22sp"-->
+                    <!--android:paddingTop="16dp"-->
+                    <!--android:paddingBottom="16dp"-->
+                    <!--android:textColor="@color/heading_color"/>-->
+
+            <!--</ScrollView>-->
+
+            <!--<Button-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/add_apps_button" />-->
+        <!--</LinearLayout>-->
+
+
+
+
+

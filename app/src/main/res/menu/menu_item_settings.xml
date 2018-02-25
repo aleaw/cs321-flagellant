@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/action_start"
-        android:title="@string/settings_label"
+        android:title="@string/start_label"
         android:icon="@drawable/ic_action_name"
         app:showAsAction="never" />
 

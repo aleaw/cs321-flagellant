@@ -8,13 +8,23 @@
     tools:context="com.example.aleaweeks.flagellant.FlagellateActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!--<TextClock-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <Chronometer
+        android:id="@+id/chr_countdown_clock"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_list"
-        android:paddingBottom="30dp"
-        android:textSize="10pt"
-        android:textColor="@color/heading_color"/>
+        android:textSize="50pt"
+        android:textAlignment="center"
+        android:countDown="true" />
+
+
+    <!--<TimePicker-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+    <!--</TimePicker>-->
 
     <Button
         android:id="@+id/btn_start"

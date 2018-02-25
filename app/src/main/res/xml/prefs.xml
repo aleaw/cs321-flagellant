@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="@string/pref_charity_key"
+        android:title="@string/pref_charity_title"
+        android:summary="%s"
+        android:dialogTitle="@string/pref_charity_title"
+        android:entries="@array/pref_charity_entries"
+        android:defaultValue="@string/pref_charity_default"
+        android:entryValues="@array/pref_charity_values" />
+
+    <EditTextPreference
+        android:key="@string/pref_donation_key"
+        android:title="@string/pref_donation_title"
+        android:inputType="number"/>
+
+    <PreferenceCategory android:title="@string/pref_app_title">
+        <CheckBoxPreference
+            android:key="@string/pref_app_reddit_key"
+            android:title="@string/pref_app_reddit"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="@string/pref_app_facebook_key"
+            android:title="@string/pref_app_facebook"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="@string/pref_app_instagram_key"
+            android:title="@string/pref_app_instagram"
+            android:defaultValue="false"/>
+
+        <!--android:defaultValue="@string/pref_app_default"-->
+        <!--android:enabled="true"-->
+        <!--android:entries="@array/pref_app_entries"-->
+        <!--android:entryValues="@array/pref_app_values"-->
+    </PreferenceCategory>
+
+</PreferenceScreen>
+
