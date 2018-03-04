@@ -7,6 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.net.Uri;
+
+import java.net.URL;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +31,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(settingsActivityIntent);
             }
         });
+
+
+        Button payPalSignUp = (Button)findViewById(R.id.btn_signup_paypal);
+        payPalSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    signUpForPaypal();
+            }
+        });
     }
+
+    public void signUpForPaypal() {
+        String signUpURL = "https://www.paypal.com/welcome/signup/#/email_password";
+        Uri signUp = Uri.parse(signUpURL);
+        Intent webIntent =
+                new Intent(Intent.ACTION_VIEW, signUp);
+        if(webIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(webIntent);
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

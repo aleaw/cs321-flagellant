@@ -6,6 +6,11 @@
         android:id="@+id/action_start"
         android:title="@string/start_label"
         android:icon="@drawable/ic_action_name"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_summary"
+        android:title="@string/summary_action"
+        app:showAsAction="never"/>
 
 </menu>
