@@ -1,0 +1,142 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+%%\usepackage[section]{placeins}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+%%\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{bmpsize}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+%%\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\title{Assignment 6 - FIS}
+\author{Regina Weeks - Chase Denecke - Brice Ng - Tyler Farnham - Qibang Liu}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Product Release}
+\textbf{Instructions:}
+\begin{itemize}
+\item Download Android Studio: https://developer.android.com/studio/install.html
+\item Download the zip file of our github repository: https://github.com/aleaw/cs321-flagellant
+\item Extract the zip folder to somewhere you can find it (downloads)
+\item Open an existing project in android studio. Navigate to the folder you extracted our project to, select it, and open it.Click on the “SDK Manager” button near the top right corner of the android studio window.
+\item In the menu that this button pulls up, navigate to “Appearance \& Behavior”, then “Android SDK.”
+\item Under the “SDK Platforms” tab, download “Android API 27”
+\item Get the Pixel 2 emulator
+\item At the top of your Android Studio window, select “Run”.
+\item In the dropdown menu, select “Run ‘app’”
+\item Select the emulator that you chose if it prompts you to. This should build and run the app.
+\end{itemize}
+
+\section{User Story}
+\textbf{User Story: A large-fingered user}
+\begin{itemize}
+\item Pair Programmers: Alea and Tyler
+\item Problems: None
+\item Time required: 4 hours
+\item Current Status: Implemented, and tested
+\item Left to be completed: N/A (fully implemented)
+\item The spike diagram was not useful because the user story was such an easy fix.  The user required only a minor adjustment to the application, and did not need any functionality to be changed, only the icon sizes.  With such a simple user story, no other spike diagrams were necessary for this user story.
+\end{itemize}
+\pagebreak
+\textbf{User Story: Set Donation Amount}
+\begin{itemize}
+\item Pair Programmers: Brice and Alea
+\item Problems: N/A
+\item Time required: 10 minutes
+\item Current Status: Done
+\item Left to be completed: N/A (fully implemented)
+\item The Spike and UML sequence diagram wasn’t very useful since this is also no hard to implement and no much problem encountered, so Spike and UML sequence were not necessary.
+\end{itemize}
+\section{Design Changes and Rationale}
+\textbf{Questions that we asked the customer:}
+\begin{itemize}
+\item Implementing the PayPal API is going to be very difficult and will take a long time. We believe that using the Google Pay API will be beneficial to the rate at which we can complete the project. Do you want us to make the switch to the Google Pay API or stay our course with the PayPal API?
+
+The customer wants us to make the switch over to the Google Pay from PayPal.
+
+
+\item Do you want the list of applications that the user can select from to be dynamically created based on the applications that the user has on their phone, or statically designated based on known distracting apps?
+
+The customer wanted a dynamic list of applications.
+
+
+\item Do you want user settings to be saved, or require the user to reset their settings each time they open the app?
+
+The customer wants the user settings to be saved between instances of the app.
+\end{itemize}
+\textbf{Changes to our requirements and/or design specification:}
+
+The biggest change we made was making the switch over to the Google Pay API from the Paypal API. This changes much of the design of our app. We spent a lot of time researching the PayPal API and our conclusion was that it was not designed to do what we want it to do. After inspection of our other possible options for payment APIs that we could use we realized that the Google Pay API was probably the best fit. Because our app is android exclusive, we do not need to worry about google account creation. Instead of automatically donating money, at the end of each flagellation period we will now prompt the user to donate their money. There may be some other minor design changes that we make along the way based on this API switch.
+	
+    We made a few changes to our design specifications. The list of applications that the user can declare distracting will be entirely pulled from the users device instead of being hard-coded into our application as was originally planned. In the process of researching how we would compare each app that the user launches against the apps that they select from the list of apps on their phone, we realized that we would need a specific permission to be granted by the user to detect the application. This permission cannot be granted by the system to third party applications, so we need to redirect the user to the settings app screen that enables them to give Flagellant permission to get their application usage data. This is a major design change and will impact usability.
+	
+    In testing the functionality of our UI, we realized that it was really annoying for the user to input their settings every time they used the app. This led us to asking the customer if they wanted us to save the settings of the user or not. We enabled saving the user’s settings as per the customer’s requirement update request.
+    
+    
+\section{Tests}
+\parindent1pt \underline{Describe at least one unit test for at least one major existing component/task in your system:}
+
+\textbf{Unit test for settings screen}
+\begin{itemize}
+\item Open up the check-marks app, navigate to the settings screen
+\item Attempt to change charity. Click on the “change charity” button and select one of the options
+\item Click on the “Dollars to Donate” button and enter an amount in dollars
+\item Click the for each app you wish to list as time-wasting.
+\item Click on the back arrow, then click on the settings cog again. Ensure that the settings you just entered a moment ago are still there
+\item Close the app and re-open it. Ensure that the settings you entered a moment ago are still there.
+\item If the above tasks can be successfully accomplished, the unit test for the settings screen will be considered a success
+\end{itemize}
+
+\underline{Describe at least one unit test for at least one major existing user story in your system:}
+
+\textbf{Unit test for redirecting user to PayPal:}
+\begin{itemize}
+\item Open app
+\item On login screen, click the link that says “Don’t have a PayPal account? \item Click here to create one.”
+\item If clicking on this link redirects the user to the PayPal “create account” page, then the unit test has succeed.
+\end{itemize}
+
+\textbf{Unit test for large fingered user:}
+
+\begin{itemize}
+\item Attend thumb wrestling world championships in the UK
+\item Hire winner to test our app
+\item If they can successfully navigate our application, our unit test will be \item considered a success.
+\item In case the above method proves too costly, give a phone with the app installed to a random person in the valley library at OSU. If they can successfully navigate the screens, the test will be considered a success.
+\end{itemize}
+
+\underline{Describe at least one unit test for at least one part of the system that is not yet implemented.}
+
+\textbf{Unit test for login with PayPal}
+\begin{itemize}
+\item Open the app
+\item After setting a donation amount, a charity, and at least one time-wasting app, open said time wasting app
+\item Check PayPal account balance. If it has decreased by the donation amount set in the settings menu, the unit test will be considered a success
+\end{itemize}
+
+\section{Meeting Report}
+	Our meeting this week went SWIMMINGLY. Chase and Qibang worked on user story “User wants to set the amount they donate”. Chase also worked on writing the “Tests” section of assignment 6, and Qibang worked on the “User Stories” section, specifically the user who wants to set the amount they donate. Alea and Tyler worked on the user story “Large fingered user”. Alea also worked on UI improvements. Tyler worked on the “User stories” section of assignment 6, specifically the “Large fingered User” story.
+	
+    Next week we hope to start finally making progress on login via PayPal (or possibly some other payment application if it turns out login with PayPal on an Android app is not feasible). We also hope to make progress on getting a list of apps that are currently running on the phone working so that we know when the app should make a donation. Tyler has done some research in this area and has discovered that there is a function that checks which app was most recently opened every 10 seconds. We may be able to use this function to meet the specifications of our app.
+	
+    Our customer met with us on Sunday and worked on the project with us. Our customer was very reasonable, as they are part of our group.
+
+
+\section{Github url: https://github.com/aleaw/cs321-flagellant/tree/Assignment-6-FIS}
+
+
+\end{document}
