@@ -42,4 +42,7 @@
     <string name="pref_app_title">Your Time Wasting Apps</string>
     <string name="pref_app_default"></string>
 
+    <string name="google_sign_in_button">Sign in with Google</string>
+
+
 </resources>

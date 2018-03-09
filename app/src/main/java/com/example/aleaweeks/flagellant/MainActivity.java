@@ -9,49 +9,104 @@ import android.view.View;
 import android.widget.Button;
 import android.net.Uri;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.common.api.ApiException;
+import android.util.Log;
+
 import java.net.URL;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-//     Intent settingsActivityIntent = new Intent(this, SettingsActivity.class);
-//    final Intent summaryActivityIntent = new Intent(this, SettingsActivity.class);
+    private static final String CLIENT_ID = "215154353026-hvie9fmr9panglbn40tmnt7v85jp7inq.apps.googleusercontent.com";
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int RC_SIGN_IN = 0;
+    private GoogleSignInClient mGoogleSignInClient;
+    private View.OnClickListener mOnClickListener;
+    private SignInButton msignInButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Intent settingsActivityIntent = new Intent(this, SettingsActivity.class);
+        // Implementing Google Sign In. Code was taken from: https://developers.google.com/identity/sign-in/android/sign-in
 
-        Button loginWithPayPal = (Button)findViewById(R.id.btn_paypal);
-        loginWithPayPal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(settingsActivityIntent);
-            }
-        });
+        // Configure sign-in to request the user's ID, email address, and basic
+        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestServerAuthCode(CLIENT_ID)
+                .build();
+
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
-        Button payPalSignUp = (Button)findViewById(R.id.btn_signup_paypal);
-        payPalSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    signUpForPaypal();
-            }
-        });
+        msignInButton = findViewById(R.id.sign_in_button);
+        msignInButton.setSize(SignInButton.SIZE_WIDE);
+
+        findViewById(R.id.sign_in_button).setOnClickListener(this);
+        mOnClickListener = this;
+        mOnClickListener.onClick(msignInButton);
     }
 
-    public void signUpForPaypal() {
-        String signUpURL = "https://www.paypal.com/welcome/signup/#/email_password";
-        Uri signUp = Uri.parse(signUpURL);
-        Intent webIntent =
-                new Intent(Intent.ACTION_VIEW, signUp);
-        if(webIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(webIntent);
+    @Override
+    public void onClick(View v) {
+        Log.d(TAG, "sign in button clicked");
+        switch (v.getId()) {
+            case R.id.sign_in_button:
+                signIn();
+                break;
+            // ...
         }
     }
 
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInResult(task);
+        }
+    }
+
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+
+            // Signed in successfully, show authenticated UI.
+            updateUI(account);
+        } catch (ApiException e) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
+            updateUI(null);
+        }
+    }
+
+    private void updateUI(GoogleSignInAccount account) {
+        if(account == null) {
+            msignInButton.setVisibility(View.VISIBLE);
+        } else {
+            msignInButton.setVisibility(View.INVISIBLE);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

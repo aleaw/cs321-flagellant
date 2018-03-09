@@ -14,27 +14,12 @@
     android:src="@drawable/ic_whip"
     android:layout_gravity="center" />
 
-    <Button
-        android:id="@+id/btn_paypal"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:padding="30dp"
-        android:background="#0070ba"
-        android:textColor="#fff"
-        android:text="Login with PayPal"/>
 
-    <Button
-        android:id="@+id/btn_signup_paypal"
-        android:layout_width="match_parent"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:background="#fff"
-        android:layout_gravity="bottom"
-        android:padding="15dp"
-        android:text="Don't have a PayPal account? Click Here."/>
+        android:layout_gravity="center"/>
 
 
 </LinearLayout>
