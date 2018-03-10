@@ -13,16 +13,23 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.CheckBox;
+import android.graphics.drawable.Drawable;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import android.widget.Button;
 
 public class AppList extends AppCompatActivity {
 
     private RecyclerView mAppListRecyclerView;
     private ListAdapter mListAdapter;
+    private Drawable[] mIconArray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,23 +41,20 @@ public class AppList extends AppCompatActivity {
         mAppListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAppListRecyclerView.setHasFixedSize(true);
 
-        TextView mAppTV = (TextView)findViewById(R.id.tv_app_name);
-        //  CheckBox checkBox = findViewById(R.id.app_checkbox);
+        CheckBox checkBox = findViewById(R.id.app_checkbox);
+        ImageView icon = findViewById(R.id.app_icon);
         String[] mAppList = getAppList();
+        mIconArray = getAppIcons();
+
         printAppList(mAppList);
         mListAdapter = new ListAdapter(mAppList.length);
         mAppListRecyclerView.setAdapter(mListAdapter);
 
         for(int i = 0; i < mAppList.length; i++) {
-//                    mAppTV.setText("");
             mListAdapter.addApp(mAppList[i], i);
-//                  //  CheckBox checkBox = findViewById(R.id.app_checkbox);
-//                   // checkBox.setText("");
-//                    for (String app : mAppList) {
-//                        mAppTV.append(app + "\n\n");
-//                        CheckBox checkBox = findViewById(R.id.app_checkbox);
-//                        checkBox.setText("");
-//                    }
+//            TextView mAppTV = (TextView)findViewById(R.id.tv_app_name);
+//            mAppTV.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_action_name,0,0);
+
         }
     }
 
@@ -135,6 +139,37 @@ public class AppList extends AppCompatActivity {
             appString += (AppList[i] + "\n");
         }
         Log.d("printAppList", appString);
+    }
+
+    protected Drawable[] getAppIcons(){
+        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> pkgAppsList = getPackageManager().queryIntentActivities( mainIntent, 0);
+        Drawable[] icons = new Drawable[pkgAppsList.size()];
+        for(int i=0; i < pkgAppsList.size();i++) {
+            ResolveInfo p = pkgAppsList.get(i);
+            icons[i]= p.loadIcon(getPackageManager());
+        }
+        return icons;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item_applist, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final Intent flagellateActivityIntent = new Intent(this, FlagellateActivity.class);
+
+        switch (item.getItemId()) {
+            case R.id.action_start:
+                startActivity(flagellateActivityIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

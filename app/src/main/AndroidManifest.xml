@@ -45,7 +45,12 @@
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
 
-        <activity android:name=".AppList"></activity>
+        <activity android:name=".AppList"
+            android:label="Check Time Wasting Apps">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FlagellateActivity" />
+        </activity>
     </application>
 
 </manifest>
