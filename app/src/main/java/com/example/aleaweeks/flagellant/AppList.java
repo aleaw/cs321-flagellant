@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -24,11 +25,13 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import android.widget.Button;
 
-public class AppList extends AppCompatActivity {
+public class AppList extends AppCompatActivity implements
+        ListAdapter.OnAppCheckedChangeListener {
 
     private RecyclerView mAppListRecyclerView;
     private ListAdapter mListAdapter;
     private Drawable[] mIconArray;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,19 +45,18 @@ public class AppList extends AppCompatActivity {
         mAppListRecyclerView.setHasFixedSize(true);
 
         CheckBox checkBox = findViewById(R.id.app_checkbox);
-        ImageView icon = findViewById(R.id.app_icon);
+     //   ImageView icon = findViewById(R.id.app_icon);
         String[] mAppList = getAppList();
         mIconArray = getAppIcons();
 
         printAppList(mAppList);
-        mListAdapter = new ListAdapter(mAppList.length);
+        mListAdapter = new ListAdapter(mAppList.length, this);
         mAppListRecyclerView.setAdapter(mListAdapter);
 
         for(int i = 0; i < mAppList.length; i++) {
             mListAdapter.addApp(mAppList[i], i);
 //            TextView mAppTV = (TextView)findViewById(R.id.tv_app_name);
 //            mAppTV.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_action_name,0,0);
-
         }
     }
 
@@ -172,4 +174,8 @@ public class AppList extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onAppCheckedChanged(String app, boolean isChecked) {
+
+    }
 }

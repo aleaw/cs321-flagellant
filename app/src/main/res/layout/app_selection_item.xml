@@ -7,25 +7,23 @@
     android:background="@drawable/border"
     android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/app_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="">
+    <!--<ListView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
 
-    </ImageView>
-    <TextView
-        android:id="@+id/tv_app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:textSize="20sp"
-        android:layout_marginLeft="16dp"/>
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:textSize="20sp"
+            android:layout_marginLeft="16dp"/>
 
-    <CheckBox
-        android:id="@+id/app_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/app_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+    <!--</ListView>-->
 
 </LinearLayout>
