@@ -60,7 +60,7 @@ public class FlagellateActivity extends AppCompatActivity {
     private View.OnClickListener mOnClickListener;
     public int flagellationCounter;
     public int donationCounter;
-    public int donationAmount;
+    public String donationAmount;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -77,9 +77,9 @@ public class FlagellateActivity extends AppCompatActivity {
         );
 
         // *** donation counter variable *** //
-        donationAmount = sharedPreferences.getInt(
+        donationAmount = sharedPreferences.getString(
                 getString(R.string.pref_donation_key),
-                Integer.parseInt(getString(R.string.pref_donation_default))
+                getString(R.string.pref_donation_default)
         );
 
         long flagellationTimeInMinutes = Long.parseLong(flagellationTime);
