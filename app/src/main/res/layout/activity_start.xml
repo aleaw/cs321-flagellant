@@ -7,23 +7,30 @@
     tools:context="com.example.aleaweeks.flagellant.FlagellateActivity"
     android:orientation="vertical">
 
-    <!--<TextClock-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
 
-    <Chronometer
-        android:id="@+id/chr_countdown_clock"
+
+    <!--<Chronometer-->
+        <!--android:id="@+id/chr_countdown_clock"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="50pt"-->
+        <!--android:textAlignment="center"-->
+        <!--android:countDown="true" />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="63dp"
+        android:id="@+id/tv_timer"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/btn_add_apps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="50pt"
-        android:textAlignment="center"
-        android:countDown="true" />
-
-
-    <!--<TimePicker-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content">-->
-    <!--</TimePicker>-->
+        android:text="@string/add_apps_button"/>
 
     <Button
         android:id="@+id/btn_start"

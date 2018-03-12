@@ -22,6 +22,8 @@ SharedPreferences.OnSharedPreferenceChangeListener {
         super.onCreate(savedInstanceState);
         EditTextPreference userPref = (EditTextPreference) findPreference("pref_donation");
         userPref.setSummary(userPref.getText());
+        EditTextPreference timePref = (EditTextPreference) findPreference("pref_time");
+        timePref.setSummary(timePref.getText());
     }
 
     @Override
@@ -29,6 +31,10 @@ SharedPreferences.OnSharedPreferenceChangeListener {
         if (key.equals(getString(R.string.pref_donation_key))) {
             EditTextPreference userPref = (EditTextPreference) findPreference(key);
             userPref.setSummary(userPref.getText());
+        }
+        if (key.equals(getString(R.string.pref_time_key))) {
+            EditTextPreference timePref = (EditTextPreference) findPreference(key);
+            timePref.setSummary(timePref.getText());
         }
     }
 

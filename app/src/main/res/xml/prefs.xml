@@ -14,25 +14,30 @@
         android:title="@string/pref_donation_title"
         android:inputType="number"/>
 
-    <PreferenceCategory android:title="@string/pref_app_title">
-        <CheckBoxPreference
-            android:key="@string/pref_app_reddit_key"
-            android:title="@string/pref_app_reddit"
-            android:defaultValue="true"/>
-        <CheckBoxPreference
-            android:key="@string/pref_app_facebook_key"
-            android:title="@string/pref_app_facebook"
-            android:defaultValue="true"/>
-        <CheckBoxPreference
-            android:key="@string/pref_app_instagram_key"
-            android:title="@string/pref_app_instagram"
-            android:defaultValue="false"/>
+    <EditTextPreference
+        android:key="@string/pref_time_key"
+        android:title="@string/pref_time_title"
+        android:inputType="number"/>
+
+    <!--<PreferenceCategory android:title="@string/pref_app_title">-->
+        <!--<CheckBoxPreference-->
+            <!--android:key="@string/pref_app_reddit_key"-->
+            <!--android:title="@string/pref_app_reddit"-->
+            <!--android:defaultValue="true"/>-->
+        <!--<CheckBoxPreference-->
+            <!--android:key="@string/pref_app_facebook_key"-->
+            <!--android:title="@string/pref_app_facebook"-->
+            <!--android:defaultValue="true"/>-->
+        <!--<CheckBoxPreference-->
+            <!--android:key="@string/pref_app_instagram_key"-->
+            <!--android:title="@string/pref_app_instagram"-->
+            <!--android:defaultValue="false"/>-->
 
         <!--android:defaultValue="@string/pref_app_default"-->
         <!--android:enabled="true"-->
         <!--android:entries="@array/pref_app_entries"-->
         <!--android:entryValues="@array/pref_app_values"-->
-    </PreferenceCategory>
+    <!--</PreferenceCategory>-->
 
 </PreferenceScreen>
 

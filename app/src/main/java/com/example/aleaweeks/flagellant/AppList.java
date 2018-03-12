@@ -25,8 +25,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import android.widget.Button;
 
-public class AppList extends AppCompatActivity implements
-        ListAdapter.OnAppCheckedChangeListener {
+public class AppList extends AppCompatActivity  {
 
     private RecyclerView mAppListRecyclerView;
     private ListAdapter mListAdapter;
@@ -47,10 +46,11 @@ public class AppList extends AppCompatActivity implements
         CheckBox checkBox = findViewById(R.id.app_checkbox);
      //   ImageView icon = findViewById(R.id.app_icon);
         String[] mAppList = getAppList();
+
         mIconArray = getAppIcons();
 
         printAppList(mAppList);
-        mListAdapter = new ListAdapter(mAppList.length, this);
+        mListAdapter = new ListAdapter(mAppList.length);
         mAppListRecyclerView.setAdapter(mListAdapter);
 
         for(int i = 0; i < mAppList.length; i++) {
@@ -143,6 +143,16 @@ public class AppList extends AppCompatActivity implements
         Log.d("printAppList", appString);
     }
 
+    protected static void printBoolArray(int[] AppList){
+        if(AppList != null) {
+            String appString = "";
+            for (int i = 0; i < AppList.length; i++){
+                appString += (AppList[i] + "\n");
+            }
+            Log.d("printAppList", appString);
+        }
+    }
+
     protected Drawable[] getAppIcons(){
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -166,7 +176,15 @@ public class AppList extends AppCompatActivity implements
         final Intent flagellateActivityIntent = new Intent(this, FlagellateActivity.class);
 
         switch (item.getItemId()) {
-            case R.id.action_start:
+            case R.id.checkmark:
+                int size = ListAdapter.getNumOfElements();
+                int[] timeWastingAppArray = new int[size];
+                int[] tempArray = ListAdapter.getTimeWastingAppArray();
+                for(int i=0; i<timeWastingAppArray.length; i++) {
+                    timeWastingAppArray[i] = tempArray[i];
+                }
+                printBoolArray(timeWastingAppArray);
+                checkForSin(timeWastingAppArray);
                 startActivity(flagellateActivityIntent);
                 return true;
             default:
@@ -174,8 +192,4 @@ public class AppList extends AppCompatActivity implements
         }
     }
 
-    @Override
-    public void onAppCheckedChanged(String app, boolean isChecked) {
-
-    }
 }
