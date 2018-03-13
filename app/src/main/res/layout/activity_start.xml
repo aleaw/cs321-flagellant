@@ -19,12 +19,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="63dp"
         android:id="@+id/tv_timer"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="40sp" />
+        android:textSize="50sp" />
 
     <Button
         android:id="@+id/btn_add_apps"

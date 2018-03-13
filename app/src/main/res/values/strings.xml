@@ -3,7 +3,7 @@
 
     <!--menu strings-->
     <string name="settings_action">Settings</string>
-    <string name="summary_action">Summary</string>
+    <string name="summary_action">Summary of your Sin</string>
 
     <!--Settings Activity strings-->
     <string name="donation_amount"> Dollars to Donate</string>
@@ -16,7 +16,7 @@
     <string name="focus_time">Set Focus Time</string>
     <string name="focus_hint">Enter time (in minutes)</string>
     <string name="settings_label">Settings</string>
-    <string name="start_label">Begin Flagellation</string>
+    <string name="start_label">Flagellate</string>
     <string name="add_apps_button">ADD APPS</string>
 
     <!--Summary Activity Strings-->

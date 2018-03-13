@@ -49,6 +49,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.AppListViewHol
     public void onBindViewHolder(AppListViewHolder holder, int position) {
         String app = mAppList[position];
         holder.bind(app, position);
+
       //  holder.setIsRecyclable(false);
     }
 
@@ -87,52 +88,39 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.AppListViewHol
             mCheckBox = (CheckBox)itemView.findViewById(R.id.app_checkbox);
 
             mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @RequiresApi(api = Build.VERSION_CODES.N)
+
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     int adapterPosition = getAdapterPosition();
 
-                    if (!itemStateArray.get(adapterPosition, false)) {
-                        mCheckBox.setChecked(true);
+                    // code taken from: https://android.jlelse.eu/android-handling-checkbox-state-in-recycler-views-71b03f237022
 
-                        arrayOfTimeWastingApps[itemsInArrayOfTimeWastingApps] = adapterPosition;
-                        itemsInArrayOfTimeWastingApps+=1;
+                    if (buttonView.isPressed()) {
+                        if (!itemStateArray.get(adapterPosition, false)) {
+                            mCheckBox.setChecked(true);
 
-                        itemStateArray.put(adapterPosition, true);
-                    }
-                    else  {
-                        mCheckBox.setChecked(false);
-                        itemStateArray.put(adapterPosition, false);
-                        // if item if unchecked, delete from array
-                        if(contains(arrayOfTimeWastingApps, adapterPosition, itemsInArrayOfTimeWastingApps)) {
-                            //delete and write shift function
-                            for(int i = 0; i < itemsInArrayOfTimeWastingApps; i++) {
-                                int temp = arrayOfTimeWastingApps[i+1];
-                                arrayOfTimeWastingApps[i] = temp;
+                            arrayOfTimeWastingApps[itemsInArrayOfTimeWastingApps] = adapterPosition;
+                            itemsInArrayOfTimeWastingApps += 1;
+
+                            itemStateArray.put(adapterPosition, true);
+                        } else {
+                            mCheckBox.setChecked(false);
+                            itemStateArray.put(adapterPosition, false);
+                            // if item if unchecked, delete from array
+                            if (contains(arrayOfTimeWastingApps, adapterPosition, itemsInArrayOfTimeWastingApps)) {
+                                //delete and write shift function
+                                for (int i = 0; i < itemsInArrayOfTimeWastingApps; i++) {
+                                    int temp = arrayOfTimeWastingApps[i + 1];
+                                    arrayOfTimeWastingApps[i] = temp;
+                                }
+                                itemsInArrayOfTimeWastingApps -= 1;
                             }
-                            itemsInArrayOfTimeWastingApps-=1;
                         }
+                        Log.d(TAG, "Array at: " + adapterPosition + " is " + isChecked);
                     }
-
-                    Log.d(TAG, "Array at: " + adapterPosition + " is " + isChecked);
                 }
             });
 
-
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-////                    int adapterPosition = getAdapterPosition();
-////                    if (!itemStateArray.get(adapterPosition, false)) {
-////                        mCheckBox.setChecked(true);
-////                        itemStateArray.put(adapterPosition, true);
-////                    }
-////                    else  {
-////                        mCheckBox.setChecked(false);
-////                        itemStateArray.put(adapterPosition, false);
-////                    }
-//                }
-//            });
         }
 
         void bind (String app, int position) {
@@ -155,6 +143,5 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.AppListViewHol
             }
             return contains;
         }
-        // code taken from: https://android.jlelse.eu/android-handling-checkbox-state-in-recycler-views-71b03f237022
     }
 }

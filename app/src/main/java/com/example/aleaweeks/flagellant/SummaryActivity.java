@@ -1,6 +1,7 @@
 package com.example.aleaweeks.flagellant;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 

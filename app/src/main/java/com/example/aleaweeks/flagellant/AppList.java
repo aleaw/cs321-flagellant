@@ -23,6 +23,7 @@ import android.graphics.drawable.Drawable;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import android.widget.Toast;
 import android.widget.Button;
 
 public class AppList extends AppCompatActivity  {
@@ -75,6 +76,13 @@ public class AppList extends AppCompatActivity  {
             // Sort the stats by the last time used
             if (stats == null || stats.size() == 0) {
                 startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
+                Context context = getApplicationContext();
+                CharSequence text = "This application requires application usage statistics. Please enable \"Flagellant\" as an app that is allowed to use this permission";
+                int duration = Toast.LENGTH_LONG;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+
             }
         }
 
@@ -184,8 +192,8 @@ public class AppList extends AppCompatActivity  {
                     timeWastingAppArray[i] = tempArray[i];
                 }
                 printBoolArray(timeWastingAppArray);
-                checkForSin(timeWastingAppArray);
                 startActivity(flagellateActivityIntent);
+                checkForSin(timeWastingAppArray);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
