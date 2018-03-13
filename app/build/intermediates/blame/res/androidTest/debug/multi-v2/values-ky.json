@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\tyler\\Desktop\\cs321-flagellant-master\\cs321-flagellant-master\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ky\\values-ky.xml",
+            "outputFile": "C:\\Users\\tyler\\Desktop\\cs321-flagellant-master-backup\\cs321-flagellant-master\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ky\\values-ky.xml",
             "map": [
                 {
                     "source": "C:\\Users\\tyler\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.8.0.aar\\eb9569b41e1e45f09a15e59d2c99728e\\res\\values-ky\\values.xml",
