@@ -4,9 +4,11 @@ import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,20 +25,34 @@ import android.graphics.drawable.Drawable;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import android.widget.Toast;
 import android.widget.Button;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class AppList extends AppCompatActivity  {
 
     private RecyclerView mAppListRecyclerView;
     private ListAdapter mListAdapter;
     private Drawable[] mIconArray;
-
+    public String donationAmount;
+    public String donationTotal;
+    public int donationCounter = 0;
+    public TextView donationTotalText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_list);
+        donationTotalText = findViewById(R.id.DonationTotal);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        donationAmount = sharedPreferences.getString(
+                getString(R.string.pref_donation_key),
+                getString(R.string.pref_donation_default)
+        );
+
 
         // Recycler View stuff
         mAppListRecyclerView = (RecyclerView)findViewById(R.id.rv_app_list);
@@ -61,6 +77,12 @@ public class AppList extends AppCompatActivity  {
         }
     }
 
+    public final int getDonationCounter(){
+        return donationCounter;
+    }
+
+
+
     // Getting user's app logic
 
     //final int permissionUsageStats = ContextCompat.checkSelfPermission(this, Manifest.permission.PACKAGE_USAGE_STATS);
@@ -75,14 +97,13 @@ public class AppList extends AppCompatActivity  {
             List<UsageStats> stats = mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, time - 1000 * 10, time);
             // Sort the stats by the last time used
             if (stats == null || stats.size() == 0) {
-                startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
                 Context context = getApplicationContext();
                 CharSequence text = "This application requires application usage statistics. Please enable \"Flagellant\" as an app that is allowed to use this permission";
                 int duration = Toast.LENGTH_LONG;
 
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
-
+                startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
             }
         }
 
@@ -121,7 +142,10 @@ public class AppList extends AppCompatActivity  {
                     //Check the currently opened app against the apps in the selected app list
                     for(int i = 0; i < selectedPkgs.length; i++){
                         if(selectedPkgs[i].activityInfo.packageName == topPackageName){
-                            //Add money to total owed money
+                            donationCounter += Integer.parseInt(donationAmount);
+                            donationTotal = Integer.toString(donationCounter);
+                            donationTotalText.setText(donationTotal);//Add money to total owed money
+                            Log.d("Add money!", "We are adding money!");
                         }
                     }
                 }
@@ -192,8 +216,8 @@ public class AppList extends AppCompatActivity  {
                     timeWastingAppArray[i] = tempArray[i];
                 }
                 printBoolArray(timeWastingAppArray);
-                startActivity(flagellateActivityIntent);
                 checkForSin(timeWastingAppArray);
+                startActivity(flagellateActivityIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
