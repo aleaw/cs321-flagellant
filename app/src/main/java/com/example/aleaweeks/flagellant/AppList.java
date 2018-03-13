@@ -44,7 +44,7 @@ public class AppList extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_list);
-        donationTotalText = findViewById(R.id.DonationTotal);
+        donationTotalText = (TextView) findViewById(R.id.DonationTotal);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
