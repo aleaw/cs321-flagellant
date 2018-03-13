@@ -38,6 +38,7 @@ public class AppList extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_list);
 
+
         // Recycler View stuff
         mAppListRecyclerView = (RecyclerView)findViewById(R.id.rv_app_list);
 

@@ -39,7 +39,7 @@ public class FlagellateActivity extends AppCompatActivity {
     private TextView mAppTV;
     private View.OnClickListener mOnClickListener;
     public int flagellationCounter;
-    public int donationCounter;
+    public float donationCounter;
     public String donationAmount;
     private PaymentsClient mPaymentsClient;
 
